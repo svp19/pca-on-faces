@@ -44,9 +44,9 @@ class PCA():
         indices = eig_val.argsort()[::-1]       #4.
         eig_val = eig_val[indices]
         eig_vec = eig_vec[:, indices]
-        self.components_, self.singular_values_ = eig_vec[:, :self.k].T, eig_val[:self.k]
+        self.components_, self.singular_values_ = eig_vec[:, :self.k], eig_val[:self.k]
 
-        x_pca = x_centered.dot(eig_vec[:, :self.k]) #5.
+        x_pca = x_centered.dot(self.components_) #5.
         return x_pca
 
 
