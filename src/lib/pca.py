@@ -61,8 +61,8 @@ class PCA():
         eig_vec = eig_vec[:, indices]
 
         # Store attributes
-        self.components_ = eig_vec[:, :self.k]
-        self.singular_values_ = eig_val[:self.k]
+        self.components_ = np.real(eig_vec[:, :self.k])
+        self.singular_values_ = np.real(eig_val[:self.k])
 
         x_pca = x_centered.dot(self.components_) #5.
         return x_pca
